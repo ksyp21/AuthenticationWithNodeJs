@@ -21,6 +21,12 @@ app.post("/register", async (req, res) => {
     const username = req.body.username
     const password = req.body.password
 
+
+    //server side validation
+    if (!email || !password || !username) {
+        return res.send("Please provide proper data.")
+    }
+
     await users.create({
         email: email,
         username: username,
